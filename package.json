@@ -11,13 +11,22 @@
     "url": "git+https://github.com/charlesdobson/slackbot-starter.git"
   },
   "scripts": {
+    "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --fix",
     "serve": "NODE_ENV=development nodemon --exec 'ts-node' src/index.ts",
     "start": "NODE_ENV=production ts-node src/index.ts"
   },
   "devDependencies": {
     "@types/node": "^15.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/parser": "^4.22.1",
     "dotenv": "^9.0.0",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
     "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
   },
@@ -25,5 +34,16 @@
     "@slack/web-api": "^6.1.0",
     "axios": "^0.21.1",
     "tslog": "^3.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/*.{js,ts}": [
+      "npx prettier --write",
+      "yarn run lint"
+    ]
   }
 }
