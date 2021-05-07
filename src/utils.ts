@@ -1,7 +1,9 @@
-import axios from "axios";
+import axios, { AxiosResponse } from 'axios';
 
 export const post = (url: string) => {
-  return (headers: any) => async (body: any) => {
+  return (headers: unknown) => async (
+    body: unknown
+  ): Promise<AxiosResponse> => {
     const response = await axios.post(url, body, headers);
     return response;
   };
