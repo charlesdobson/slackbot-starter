@@ -28,7 +28,7 @@
     "nodemon": "2.0.12",
     "prettier": "2.4.1",
     "ts-node": "10.2.1",
-    "typescript": "4.4.2"
+    "typescript": "4.4.3"
   },
   "dependencies": {
     "@slack/web-api": "^6.1.0",
